@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-security" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-upush" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tys-xcx" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wager" charset="UTF-8" />
+  </component>
+</project>

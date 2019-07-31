@@ -1,0 +1,18 @@
+13:52:35.040 [main] INFO  com.tys.Application - Starting Application on DESKTOP-VS66JR3 with PID 21364 (E:\01-idt\01-java\other\tysbms\tys-xcx\target\classes started by yaoyz in E:\01-idt\01-java\other\tysbms)
+13:52:35.333 [main] INFO  com.tys.Application - The following profiles are active: dev
+13:52:49.039 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+13:52:49.079 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+13:52:49.081 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+13:52:49.121 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\01-jdk\JDK8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;G:\01-oracle\03-11g\product\11.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;D:\01-jdk\JDK8\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Users\yaoyz\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\yaoyz\AppData\Local\Programs\Python\Python37\;C:\Users\yaoyz\AppData\Local\Microsoft\WindowsApps;;C:\Users\yaoyz\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\yaoyz\AppData\Roaming\npm;C:\Users\yaoyz\AppData\Local\Programs\Fiddler;.]
+13:52:49.833 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/xcx] - Initializing Spring embedded WebApplicationContext
+13:52:51.819 [main] INFO  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure - Init DruidDataSource
+13:52:52.583 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+13:52:57.632 [main] INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+13:52:57.635 [main] INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+13:53:05.816 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+13:53:07.031 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+13:53:07.078 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+13:53:07.164 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+13:53:08.622 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+13:53:08.662 [main] INFO  com.tys.Application - Started Application in 36.637 seconds (JVM running for 45.617)
+13:53:29.003 [http-nio-8083-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/xcx] - Initializing Spring DispatcherServlet 'dispatcherServlet'

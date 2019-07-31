@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="tys-demo" />
+        <module name="tys-entity" />
+        <module name="tys-security" />
+        <module name="tys-upush" />
+        <module name="tys-util" />
+        <module name="tys-web" />
+        <module name="tys-xcx" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wager" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="tys-demo" options="-parameters" />
+      <module name="tys-entity" options="-parameters" />
+      <module name="tys-security" options="-parameters" />
+      <module name="tys-upush" options="-parameters" />
+      <module name="tys-util" options="-parameters" />
+      <module name="tys-web" options="-parameters" />
+      <module name="tys-xcx" options="-parameters" />
+      <module name="wager" options="-parameters" />
+    </option>
+  </component>
+</project>

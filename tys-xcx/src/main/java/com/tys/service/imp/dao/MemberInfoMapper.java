@@ -1,0 +1,360 @@
+package com.tys.service.imp.dao;
+
+import com.tys.entity.vo.MemberInfo;
+import io.swagger.models.auth.In;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
+
+import java.util.List;
+
+@Mapper
+public interface MemberInfoMapper {
+
+
+    @Insert({"<script>",
+            "insert into memberinfo ",
+            "<trim prefix=\"(\" suffix=\")\" suffixOverrides=\",\">",
+            "<if test=\"name != null\">",
+            "name,",
+            "</if>",
+            "<if test=\"openId != null\">",
+            "open_id,",
+            "</if>",
+            "<if test=\"unionId != null\">",
+            "union_id,",
+            "</if>",
+            "<if test=\"phone != null\">",
+            "phone,",
+            "</if>",
+            "<if test=\"sex != null\">",
+            "sex,",
+            "</if>",
+            "<if test=\"birthdate != null\">",
+            "birthdate,",
+            "</if>",
+            "<if test=\"age != null\">",
+            "age,",
+            "</if>",
+            "<if test=\"height != null\">",
+            "height,",
+            "</if>",
+            "<if test=\"weight != null\">",
+            "weight,",
+            "</if>",
+            "<if test=\"bust != null\">",
+            "bust,",
+            "</if>",
+            "<if test=\"waistline != null\">",
+            "waistline,",
+            "</if>",
+            "<if test=\"buttline != null\">",
+            "buttline,",
+            "</if>",
+            "<if test=\"jobTag != null\">",
+            "job_tag,",
+            "</if>",
+            "<if test=\"hobbyTag != null\">",
+            "hobby_tag,",
+            "</if>",
+            "<if test=\"registrationDate != null\">",
+            "registration_date,",
+            "</if>",
+            "<if test=\"detectionsNumber != null\">",
+            "detections_number,",
+            "</if>",
+            "<if test=\"silentNumber != null\">",
+            "silent_number,",
+            "</if>",
+            "<if test=\"detectionsLasttime != null\">",
+            "detections_lasttime,",
+            "</if>",
+            "<if test=\"avatarUrl != null\">",
+            "avatar_url,",
+            "</if>",
+            "<if test=\"inviter != null\">",
+            "inviter,",
+            "</if>",
+            "</trim>",
+            "<trim prefix=\"values (\" suffix=\")\" suffixOverrides=\",\"> ",
+            "<if test=\"name != null\">",
+            "#{name,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"openId != null\">",
+            "#{openId,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"unionId != null\">",
+            "#{unionId,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"phone != null\">",
+            "#{phone,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"sex != null\">",
+            "#{sex,jdbcType=TINYINT},",
+            "</if>",
+            "<if test=\"birthdate != null\">",
+            "#{birthdate,jdbcType=TIMESTAMP},",
+            "</if>",
+            "<if test=\"age != null\">",
+            "#{age,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"height != null\">",
+            "#{height,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"weight != null\">",
+            "#{weight,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"bust != null\">",
+            "#{bust,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"waistline != null\">",
+            "#{waistline,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"buttline != null\">",
+            "#{buttline,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"jobTag != null\">",
+            "#{jobTag,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"hobbyTag != null\">",
+            "#{hobbyTag,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"registrationDate != null\">",
+            "#{registrationDate,jdbcType=TIMESTAMP},",
+            "</if>",
+            "<if test=\"detectionsNumber != null\">",
+            "#{detectionsNumber,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"silentNumber != null\">",
+            "#{silentNumber,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"detectionsLasttime != null\">",
+            "#{detectionsLasttime,jdbcType=TIMESTAMP},",
+            "</if>",
+            "<if test=\"avatarUrl != null\">",
+            "#{avatarUrl,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"inviter != null\">",
+            "#{inviter,jdbcType=INTEGER},",
+            "</if>",
+            "</trim>",
+            "</script>"
+    })
+    @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = Integer.class)
+    int insertSelective(MemberInfo record);
+
+    @Select({
+            "select",
+            "id, name, phone, sex, birthdate, age, height, weight, bust, waistline, buttline, job_tag, hobby_tag, registration_date, detections_number, ",
+            "silent_number, detections_lasttime, avatar_url,inviter",
+            "from memberinfo",
+            "where phone = #{phone,jdbcType=INTEGER} and status = 1"
+    })
+    @Results({
+            @Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true),
+            @Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "phone", property = "phone", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "sex", property = "sex", jdbcType = JdbcType.TINYINT),
+            @Result(column = "birthdate", property = "birthdate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "age", property = "age", jdbcType = JdbcType.INTEGER),
+            @Result(column = "height", property = "height", jdbcType = JdbcType.INTEGER),
+            @Result(column = "weight", property = "weight", jdbcType = JdbcType.INTEGER),
+            @Result(column = "bust", property = "bust", jdbcType = JdbcType.INTEGER),
+            @Result(column = "waistline", property = "waistline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "buttline", property = "buttline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "job_tag", property = "jobTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "hobby_tag", property = "hobbyTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "registration_date", property = "registrationDate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "detections_number", property = "detectionsNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "silent_number", property = "silentNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "detections_lasttime", property = "detectionsLasttime", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "avatar_url", property = "avatarUrl", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "inviter", property = "inviter", jdbcType = JdbcType.INTEGER)
+    })
+    MemberInfo selectByPhone(String phone);
+
+    @Select({"select detections_number from memberinfo where id = #{id,jdbcType=INTEGER}"})
+    @ResultType(java.lang.Integer.class)
+    Integer selectDetectionsNumber(Integer id);
+
+    @Select({
+            "select",
+            "id, open_id, union_id, name, phone, sex, birthdate, age, height, weight, bust, waistline, buttline, job_tag, hobby_tag, registration_date, detections_number, ",
+            "silent_number, detections_lasttime, avatar_url,inviter,expsum,topwintime,nearwintime,sumwintime,sumfailtime",
+            "from memberinfo",
+            "where open_id = #{openId,jdbcType=INTEGER} and status = 1"
+    })
+    @Results({
+            @Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true),
+            @Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "open_id", property = "openId", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "union_id", property = "unionId", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "phone", property = "phone", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "sex", property = "sex", jdbcType = JdbcType.TINYINT),
+            @Result(column = "birthdate", property = "birthdate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "age", property = "age", jdbcType = JdbcType.INTEGER),
+            @Result(column = "height", property = "height", jdbcType = JdbcType.INTEGER),
+            @Result(column = "weight", property = "weight", jdbcType = JdbcType.INTEGER),
+            @Result(column = "bust", property = "bust", jdbcType = JdbcType.INTEGER),
+            @Result(column = "waistline", property = "waistline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "buttline", property = "buttline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "job_tag", property = "jobTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "hobby_tag", property = "hobbyTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "registration_date", property = "registrationDate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "detections_number", property = "detectionsNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "silent_number", property = "silentNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "detections_lasttime", property = "detectionsLasttime", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "avatar_url", property = "avatarUrl", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "inviter", property = "inviter", jdbcType = JdbcType.INTEGER),
+            @Result(column = "expsum", property = "expSum", jdbcType = JdbcType.INTEGER),
+            @Result(column = "topwintime", property = "topWinTime", jdbcType = JdbcType.INTEGER),
+            @Result(column = "nearwintime", property = "nearWinTime", jdbcType = JdbcType.INTEGER),
+            @Result(column = "nearwintime", property = "nearWinTime", jdbcType = JdbcType.INTEGER),
+            @Result(column = "sumwintime", property = "sumWinTime", jdbcType = JdbcType.INTEGER),
+            @Result(column = "sumfailtime", property = "sumFailTime", jdbcType = JdbcType.INTEGER)
+    })
+    MemberInfo selectByOpenId(String openId);
+
+    @Update({
+           "<script>",
+            "update memberinfo",
+            "<set>",
+            "<if test=\"name != null\">",
+            "name = #{name,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"phone != null\">",
+            "phone = #{phone,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"sex != null\">",
+            "sex = #{sex,jdbcType=TINYINT},",
+            "</if>",
+            "<if test=\"birthdate != null\">",
+            "birthdate = #{birthdate,jdbcType=TIMESTAMP},",
+            "</if>",
+            "<if test=\"age != null\">",
+            "age = #{age,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"height != null\">",
+            "height = #{height,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"weight != null\">",
+            "weight = #{weight,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"bust != null\">",
+            "bust = #{bust,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"waistline != null\">",
+            "waistline = #{waistline,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"buttline != null\">",
+            "buttline = #{buttline,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"jobTag != null\">",
+            "job_tag = #{jobTag,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"hobbyTag != null\">",
+            "hobby_tag = #{hobbyTag,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"registrationDate != null\">",
+            "registration_date = #{registrationDate,jdbcType=TIMESTAMP},",
+            "</if>",
+            "<if test=\"detectionsNumber != null\">",
+            "detections_number = #{detectionsNumber,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"silentNumber != null\">",
+            "silent_number = #{silentNumber,jdbcType=INTEGER},",
+            "</if>",
+            "<if test=\"detectionsLasttime != null\">",
+            "detections_lasttime = #{detectionsLasttime,jdbcType=TIMESTAMP},",
+            "</if>",
+            "<if test=\"avatarUrl != null\">",
+            "avatar_url = #{avatarUrl,jdbcType=VARCHAR},",
+            "</if>",
+            "<if test=\"avatarUrl != null\">",
+            "inviter = #{inviter,jdbcType=INTEGER},",
+            "</if>",
+            "</set>",
+            "where id = #{id,jdbcType=INTEGER}",
+           "</script>"
+    })
+    int updateByPrimaryKeySelective(MemberInfo record);
+
+
+    @Update({
+            "update memberinfo",
+            "set phone = #{phone,jdbcType=VARCHAR}",
+            "where id = #{id,jdbcType=INTEGER}"
+    })
+    int updatetelPhoneById(Integer id,String phone);
+
+    @Update({
+            "update memberinfo",
+            "set expsum = expsum + #{expsum,jdbcType=INTEGER}",
+            "where id = #{id,jdbcType=INTEGER}"
+    })
+    int updateExpSumById(Integer id,Integer expsum);
+    @Select({
+            "select",
+            "id, open_id, union_id, name, phone, sex, birthdate, age, height, weight, bust, waistline, buttline, job_tag, hobby_tag, registration_date, detections_number, ",
+            "silent_number, detections_lasttime, avatar_url,inviter",
+            "from memberinfo",
+            "where id = #{id,jdbcType=INTEGER} and status = 1"
+    })
+    @Results({
+            @Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true),
+            @Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "open_id", property = "openId", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "union_id", property = "unionId", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "phone", property = "phone", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "sex", property = "sex", jdbcType = JdbcType.TINYINT),
+            @Result(column = "birthdate", property = "birthdate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "age", property = "age", jdbcType = JdbcType.INTEGER),
+            @Result(column = "height", property = "height", jdbcType = JdbcType.INTEGER),
+            @Result(column = "weight", property = "weight", jdbcType = JdbcType.INTEGER),
+            @Result(column = "bust", property = "bust", jdbcType = JdbcType.INTEGER),
+            @Result(column = "waistline", property = "waistline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "buttline", property = "buttline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "job_tag", property = "jobTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "hobby_tag", property = "hobbyTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "registration_date", property = "registrationDate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "detections_number", property = "detectionsNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "silent_number", property = "silentNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "detections_lasttime", property = "detectionsLasttime", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "avatar_url", property = "avatarUrl", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "inviter", property = "inviter", jdbcType = JdbcType.INTEGER)
+    })
+    MemberInfo selectById( Integer id);
+
+    @Select({
+            "select",
+            "id, open_id, union_id, name, phone, sex, birthdate, age, height, weight, bust, waistline, buttline, job_tag, hobby_tag, registration_date, detections_number, ",
+            "silent_number, detections_lasttime, avatar_url,inviter ",
+            "from memberinfo order by ",
+
+    })
+    @Results({
+            @Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true),
+            @Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "open_id", property = "openId", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "union_id", property = "unionId", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "phone", property = "phone", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "sex", property = "sex", jdbcType = JdbcType.TINYINT),
+            @Result(column = "birthdate", property = "birthdate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "age", property = "age", jdbcType = JdbcType.INTEGER),
+            @Result(column = "height", property = "height", jdbcType = JdbcType.INTEGER),
+            @Result(column = "weight", property = "weight", jdbcType = JdbcType.INTEGER),
+            @Result(column = "bust", property = "bust", jdbcType = JdbcType.INTEGER),
+            @Result(column = "waistline", property = "waistline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "buttline", property = "buttline", jdbcType = JdbcType.INTEGER),
+            @Result(column = "job_tag", property = "jobTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "hobby_tag", property = "hobbyTag", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "registration_date", property = "registrationDate", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "detections_number", property = "detectionsNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "silent_number", property = "silentNumber", jdbcType = JdbcType.INTEGER),
+            @Result(column = "detections_lasttime", property = "detectionsLasttime", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "avatar_url", property = "avatarUrl", jdbcType = JdbcType.VARCHAR),
+            @Result(column = "inviter", property = "inviter", jdbcType = JdbcType.INTEGER)
+    })
+    List<MemberInfo> getRanking();
+
+
+}
